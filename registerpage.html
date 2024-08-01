@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="styles-register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Criar Conta</h1>
+            <form>
+                <div class="profile-picture">
+                    <label for="profilePic">
+                        <img id="profilePicPreview" src="https://via.placeholder.com/150" alt="Foto de Perfil">
+                        <input type="file" id="profilePic" name="profilePic" accept="image/*">
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label for="fullName">Nome Completo</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="button" onclick="criar()">Criar Conta</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('profilePic').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profilePicPreview').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+<script src="script-register.js"></script>
+</body>
+</html>
